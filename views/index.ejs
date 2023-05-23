@@ -5,19 +5,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To Do App</title>
+    <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
-    <h2><%= currentDay %></h2>
-    <h1>To Do List</h1>
-    <form action ="/" method="post">
-        <input class="" name="listItem" type="text" placeholder="Add Item"/>
-        <button type="submit">+</button>
-        <% list.forEach(function(item) { %>
-            <li><%= item %></li>
-          <% }); %>
-        
-    </form>
-    </form>
+        <div class="box" id="heading">
+            <h1><%= currentDay %></h1>    
+        </div>
+
+    <div class="box">
+        <div class="box">
+            <% list.forEach(function(item) { %>
+                <div class="item">
+                    <input type="checkbox"/>
+                    <p type="checkbox"><%= item %></p>
+                </div>
+            <% }); %>
+        </div>
+        <form class ="item" action ="/" method="post">
+            <input class="" name="listItem" type="text" placeholder="Add Item"/ autocomplete="off">
+            <button type="submit">+</button>
+                
+        </form>
+    </div>
 </body>
 </html>
 
