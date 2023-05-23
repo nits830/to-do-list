@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const currentDate = require(__dirname + "/date.js");
 
 app.use(express.urlencoded({extended:true}));
 app.set('view engine', 'ejs');
@@ -9,7 +10,10 @@ const toDoList = [];
 
 
 app.get("/", (req, res)=> {
-    res.render('index', {list: toDoList})
+    
+    let currentDay = currentDate();
+    
+    res.render('index', {list: toDoList, currentDay: currentDay});
     
 })
 
@@ -26,4 +30,4 @@ app.post("/", (req,res)=> {
 })
 
 
-app.listen(3000, console.log("Server started @ Port: 3000"));
+app.listen(5000, console.log("Server started @ Port: 5000"));
