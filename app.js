@@ -5,6 +5,12 @@ app.use(express.static('public'));
 app.use(express.urlencoded({extended:true}));
 app.set('view engine', 'ejs');
 
+
+ 
+
+    
+
+
 const toDoList = [];
 
 
@@ -29,6 +35,15 @@ app.post("/", (req,res)=> {
     res.redirect("/");
     }
 })
+
+
+app.post('/delete/:index', (req, res) => {
+    const todoId = req.params.index;
+  
+    
+    toDoList.splice(todoId, 1);
+    res.redirect('/'); 
+  });
 
 
 app.listen(5000, console.log("Server started @ Port: 5000"));

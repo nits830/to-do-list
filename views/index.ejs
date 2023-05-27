@@ -14,12 +14,19 @@
 
     <div class="box">
         <div class="box">
-            <% list.forEach(function(item) { %>
+            <% list.forEach(function(item, index) { %>
                 <div class="item">
                     <input type="checkbox"/>
-                    <p type="checkbox"><%= item %></p>
+                    <p type="checkbox"><%= item %>
+                        <form method="POST" action="/delete/<%= index %>">
+                            <button type="submit">Delete</button>
+                          </form>
+                    </p>
+                    
                 </div>
+                
             <% }); %>
+            
         </div>
         <form class ="item" action ="/" method="post">
             <input class="" name="listItem" type="text" placeholder="Add Item"/ autocomplete="off">
